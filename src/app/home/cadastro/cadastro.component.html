@@ -1,0 +1,37 @@
+<h4 class="text-center"> Registre-se</h4>
+
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
+  <div class="form-group mb-3">
+    <input type="text" class="form-control" placeholder="Email" formControlName="email">
+    <app-mensagem *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] && novoUsuarioForm.get('email')?.touched"
+      mensagem="Email obrigátorio"></app-mensagem>
+
+    <app-mensagem *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] && novoUsuarioForm.get('email')?.touched"
+      mensagem="Email inválido"></app-mensagem>
+  </div>
+
+  <div class="form-group mb-3">
+    <input type="text" placeholder="Nome Completo" class="form-control" formControlName="fullName">
+    <app-mensagem *ngIf="novoUsuarioForm.get('fullName')?.errors && novoUsuarioForm.get('fullName')?.touched"
+      mensagem="Nome obrigátorio"></app-mensagem>
+  </div>
+
+  <div class="form-group mb-3">
+    <input type="text" placeholder="Usuário" class="form-control" formControlName="userName">
+    <app-mensagem *ngIf="novoUsuarioForm.get('userName')?.errors && novoUsuarioForm.get('userName')?.touched"
+      mensagem="Nick obrigátorio"></app-mensagem>
+  </div>
+
+  <div class="form-group mb-3">
+    <input type="password" placeholder="Senha" class="form-control" formControlName="password">
+    <app-mensagem *ngIf="novoUsuarioForm.get('password')?.errors && novoUsuarioForm.get('password')?.touched"
+      mensagem="Senha obrigátorio"></app-mensagem>
+
+    <app-mensagem *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']"
+      mensagem="Senha não pode ser igual ao nome de usuario"></app-mensagem>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block">Cadastro</button>
+</form>
+
+<p>Já é um usuário?<a [routerLink]="['']">faça Login</a></p>
