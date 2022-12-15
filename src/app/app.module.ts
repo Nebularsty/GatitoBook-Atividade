@@ -7,9 +7,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { animalComponent } from './animais/animal/animal.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, animalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
